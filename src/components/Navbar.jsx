@@ -28,10 +28,21 @@ export default function Navbar({ onOpenStrategyModal }) {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    
+    // Smooth scroll with a slight delay on mobile to ensure menu closes smoothly first
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 150);
   };
 
   const navClass = isScrolled
@@ -43,21 +54,22 @@ export default function Navbar({ onOpenStrategyModal }) {
       <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navClass}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Updated Logo Matching NA Tech Consulting LLC Style */}
-          <a href="#" className="flex items-center gap-3 group text-decoration-none">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#38bdf8] to-[#0284c7] flex items-center justify-center shadow-lg shadow-sky-500/20 shrink-0">
-              <span className="text-black font-extrabold text-sm tracking-tight">NA</span>
+          {/* Responsive Brand Logo Layout */}
+          <a href="#" className="flex items-center gap-2 sm:gap-3 group text-decoration-none min-w-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-b from-[#38bdf8] to-[#0284c7] flex items-center justify-center shadow-lg shadow-sky-500/20 shrink-0">
+              <span className="text-black font-extrabold text-xs sm:text-sm tracking-tight">NA</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-sm sm:text-base tracking-tight leading-tight flex items-center gap-1.5">
+            <div className="flex flex-col truncate">
+              <span className="text-white font-bold text-xs sm:text-base tracking-tight leading-tight truncate">
                 NA Tech Consulting
               </span>
-              <span className="text-slate-400 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase leading-none mt-0.5">
+              <span className="text-slate-400 text-[9px] sm:text-xs font-medium tracking-[0.2em] uppercase leading-none mt-0.5">
                 LLC
               </span>
             </div>
           </a>
 
+          {/* Desktop & Extra Large Navigation */}
           <nav className="hidden xl:flex items-center gap-6">
             {NAV_LINLES_DATA.map((link) => (
               <a
@@ -71,6 +83,7 @@ export default function Navbar({ onOpenStrategyModal }) {
             ))}
           </nav>
 
+          {/* Tablet & Desktop Actions */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="#contact"
@@ -79,12 +92,20 @@ export default function Navbar({ onOpenStrategyModal }) {
             >
               Contact
             </a>
+            <Button
+              size="sm"
+              variant="primary"
+              onClick={() => onOpenStrategyModal("proposal")}
+            >
+              Partner
+            </Button>
           </div>
 
+          {/* Mobile Menu & Quick Actions Trigger */}
           <div className="flex xl:hidden items-center gap-2">
             <button
               onClick={() => onOpenStrategyModal("proposal")}
-              className="sm:hidden px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold cursor-pointer"
+              className="xs:flex sm:hidden px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-[11px] font-semibold cursor-pointer transition-colors whitespace-nowrap"
             >
               Partner
             </button>
@@ -99,6 +120,7 @@ export default function Navbar({ onOpenStrategyModal }) {
         </div>
       </header>
 
+      {/* Expandable Mobile Navigation Tray */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -107,14 +129,14 @@ export default function Navbar({ onOpenStrategyModal }) {
             exit={{ opacity: 0, height: 0 }}
             className="fixed top-[62px] left-0 right-0 z-30 bg-[#07090e]/97 backdrop-blur-2xl border-b border-slate-800 xl:hidden overflow-hidden shadow-2xl"
           >
-            <div className="max-w-7xl mx-auto px-6 py-6 space-y-4">
-              <div className="grid grid-cols-2 gap-3 pb-4 border-b border-slate-800/80">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-4 max-h-[calc(100vh-80px)] overflow-y-auto">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 sm:gap-3 pb-4 border-b border-slate-800/80">
                 {NAV_LINLES_DATA.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm font-medium text-slate-300 hover:text-blue-400 py-2 transition-colors"
+                    className="text-sm font-medium text-slate-300 hover:text-blue-400 py-2 px-2 rounded-lg hover:bg-slate-900/50 transition-colors"
                   >
                     {link.name}
                   </a>
@@ -122,7 +144,7 @@ export default function Navbar({ onOpenStrategyModal }) {
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, "#contact")}
-                  className="text-sm font-medium text-slate-300 hover:text-blue-400 py-2 transition-colors"
+                  className="text-sm font-medium text-slate-300 hover:text-blue-400 py-2 px-2 rounded-lg hover:bg-slate-900/50 transition-colors"
                 >
                   Contact
                 </a>
