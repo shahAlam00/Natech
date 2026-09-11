@@ -15,7 +15,7 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-36 overflow-hidden bg-[#050505]">
+    <section id="contact" className="hidden md:block relative py-24 sm:py-36 overflow-hidden bg-[#050505]">
       {/* Premium layered background */}
       <div className="absolute inset-0 grid-background opacity-50 pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full sm:w-3/4 h-72 bg-gradient-to-b from-blue-600/14 via-indigo-600/8 to-transparent rounded-full blur-3xl pointer-events-none" />

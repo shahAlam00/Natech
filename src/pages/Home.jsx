@@ -10,7 +10,7 @@ import Roadmap from '../sections/Roadmap';
 import BusinessModel from '../sections/BusinessModel';
 import WhyPartnership from '../sections/WhyPartnership';
 import PartnerNotVendor from '../sections/PartnerNotVendor';
-import CTA from '../sections/CTA';
+// import CTA from '../sections/CTA';
 import Contact from '../components/Contact';
 
 export default function Home({ onOpenStrategyModal }) {
@@ -28,7 +28,7 @@ export default function Home({ onOpenStrategyModal }) {
       <WhyPartnership />
       <PartnerNotVendor />
       <Contact/>
-      <CTA />
+    
     </main>
   );
 }

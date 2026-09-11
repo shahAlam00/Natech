@@ -76,14 +76,7 @@ export default function Footer({ onOpenStrategyModal }) {
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0" />
                 <span className="text-white font-medium">partner@natech-a1.com</span>
               </li>
-              <li className="pt-2">
-                <button
-                  onClick={() => onOpenStrategyModal("strategy")}
-                  className="px-4 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-200 text-xs sm:text-sm font-semibold transition-colors cursor-pointer w-full text-center shadow-md shadow-blue-600/20"
-                >
-                  Book Strategy Session
-                </button>
-              </li>
+
             </ul>
           </div>
         </div>

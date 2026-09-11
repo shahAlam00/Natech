@@ -92,23 +92,12 @@ export default function Navbar({ onOpenStrategyModal }) {
             >
               Contact
             </a>
-            <Button
-              size="sm"
-              variant="primary"
-              onClick={() => onOpenStrategyModal("proposal")}
-            >
-              Partner
-            </Button>
+
           </div>
 
           {/* Mobile Menu & Quick Actions Trigger */}
           <div className="flex xl:hidden items-center gap-2.5">
-            <button
-              onClick={() => onOpenStrategyModal("proposal")}
-              className="xs:flex sm:hidden px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold cursor-pointer transition-colors whitespace-nowrap shadow-md shadow-blue-600/30"
-            >
-              Partner
-            </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:text-white focus:outline-none cursor-pointer shadow-sm"
@@ -149,28 +138,7 @@ export default function Navbar({ onOpenStrategyModal }) {
                   Contact
                 </a>
               </div>
-              <div className="space-y-3.5 pt-2">
-                <Button
-                  variant="primary"
-                  className="w-full justify-center py-3.5 text-base shadow-lg shadow-blue-600/20"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenStrategyModal("proposal");
-                  }}
-                >
-                  Start the Partnership
-                </Button>
-                <Button
-                  variant="secondary"
-                  className="w-full justify-center py-3.5 text-base border-slate-700 bg-slate-900 text-slate-200"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenStrategyModal("strategy");
-                  }}
-                >
-                  Schedule a Strategy Call
-                </Button>
-              </div>
+
             </div>
           </motion.div>
         )}
