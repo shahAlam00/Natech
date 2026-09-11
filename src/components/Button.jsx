@@ -16,9 +16,9 @@ export default function Button({
   ...props
 }) {
   const sizeClasses = {
-    sm: "px-4 py-2 text-xs font-semibold gap-1.5",
-    md: "px-6 py-3 text-sm font-semibold gap-2",
-    lg: "px-8 py-4 text-base font-semibold gap-2.5",
+    sm: "px-3.5 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold gap-1.5",
+    md: "px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold gap-2",
+    lg: "px-7 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold gap-2.5",
   };
 
   const variantClasses = {
@@ -40,7 +40,7 @@ export default function Button({
         <span className="relative z-10 flex items-center gap-2">
           {children}
           {icon && IconComponent && (
-            <IconComponent className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
           )}
         </span>
       </a>
@@ -60,7 +60,7 @@ export default function Button({
       <span className="relative z-10 flex items-center gap-2">
         {children}
         {icon && IconComponent && (
-          <IconComponent className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
         )}
       </span>
     </motion.button>

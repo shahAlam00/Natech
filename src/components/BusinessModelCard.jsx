@@ -13,37 +13,37 @@ export default function BusinessModelCard({ number, title, tagline, description,
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className={`relative p-7 sm:p-9 rounded-3xl flex flex-col justify-between transition-all duration-300 ${cardClass}`}
+      className={`relative p-6 sm:p-9 rounded-3xl flex flex-col justify-between transition-all duration-300 ${cardClass}`}
     >
       {recommended && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 text-white text-[11px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(37,99,235,0.6)] flex items-center gap-1.5 border border-blue-300/40 whitespace-nowrap">
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 text-white text-[11px] font-extrabold uppercase tracking-widest shadow-[0_0_20px_rgba(37,99,235,0.6)] flex items-center gap-1.5 border border-blue-300/40 whitespace-nowrap">
           <Sparkles className="w-3.5 h-3.5" />
           <span>RECOMMENDED PARTNERSHIP</span>
         </div>
       )}
       <div>
-        <div className="mb-4">
-          <span className="text-xs font-mono font-bold text-blue-400 tracking-widest">{number}</span>
+        <div className="mb-3 sm:mb-4">
+          <span className="text-xs sm:text-sm font-mono font-bold text-blue-400 tracking-widest">{number}</span>
         </div>
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-sm font-semibold text-blue-300/90 mb-4">{tagline}</p>
-        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 font-light">{description}</p>
-        <div className="space-y-3 pt-5 border-t border-slate-800/80 mb-6">
+        <h3 className="text-xl sm:text-3xl font-bold text-white mb-2 leading-snug">{title}</h3>
+        <p className="text-xs sm:text-sm font-semibold text-blue-300/90 mb-3 sm:mb-4 leading-normal">{tagline}</p>
+        <p className="text-xs sm:text-base text-slate-300 leading-relaxed mb-6 font-light">{description}</p>
+        <div className="space-y-3.5 pt-5 border-t border-slate-800/80 mb-6">
           {features.map((feature, idx) => (
-            <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
-              <div className="w-5 h-5 rounded-full bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
-                <Check className="w-3.5 h-3.5" />
+            <div key={idx} className="flex items-start gap-3 text-xs sm:text-base text-slate-200">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
-              <span>{feature}</span>
+              <span className="leading-normal">{feature}</span>
             </div>
           ))}
         </div>
       </div>
       <div>
         {upside && (
-          <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300">
-            <span className="text-blue-400 font-semibold block mb-1">Shared Value:</span>
-            {upside}
+          <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs sm:text-sm text-slate-300">
+            <span className="text-blue-400 font-semibold block mb-1 text-xs sm:text-sm uppercase tracking-wider">Shared Value:</span>
+            <p className="font-light leading-relaxed">{upside}</p>
           </div>
         )}
       </div>

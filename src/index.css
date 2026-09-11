@@ -24,14 +24,17 @@
     width: 8px;
     height: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #07090e;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #1e293b;
     border-radius: 4px;
     border: 2px solid #07090e;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #334155;
   }
@@ -48,6 +51,7 @@
 .glass-panel-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .glass-panel-hover:hover {
   background: rgba(15, 23, 42, 0.85);
   border-color: rgba(59, 130, 246, 0.35);
@@ -80,7 +84,7 @@
 
 .grid-background {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
@@ -90,10 +94,13 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.65;
     transform: scale(1.05);
@@ -105,9 +112,12 @@
 }
 
 @keyframes floatSlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-8px);
   }
@@ -117,3 +127,95 @@
   animation: floatSlow 5s ease-in-out infinite;
 }
 
+/* Keep the dense strategy sections readable and stable on narrow screens. */
+@media (max-width: 640px) {
+  section.relative.py-24 {
+    padding-block: 4rem;
+  }
+
+  section>.max-w-7xl,
+  section>.max-w-6xl,
+  section>.max-w-5xl {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  section h2 {
+    font-size: 2.125rem;
+    line-height: 1.12;
+  }
+
+  section h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  section p,
+  section [class~="text-sm"] {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  section [class~="text-xs"] {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  section [class~="text-[11px]"] {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  section [class~="text-[10px]"] {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-top: 7.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.75rem;
+    line-height: 1.08;
+  }
+
+  .hero-section>div,
+  #contact>div {
+    padding-inline: 1.25rem;
+  }
+
+  .hero-section .flex.items-center.justify-center.gap-3 {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+  }
+
+  .hero-section .grid {
+    gap: 0.75rem;
+  }
+
+  #partnership .flex.items-center.justify-between {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  #partnership .grid,
+  #transformation .grid,
+  #business-model .grid,
+  #opportunity .grid,
+  #solutions .grid,
+  #roadmap .grid,
+  #ecosystem .grid {
+    min-width: 0;
+  }
+
+  #contact h2 {
+    font-size: 2.5rem;
+  }
+
+  #contact .flex.flex-wrap {
+    gap: 0.75rem 1rem;
+  }
+}

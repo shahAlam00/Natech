@@ -62,7 +62,7 @@ export default function ArchitectureDiagram() {
   const [selectedLayer, setSelectedLayer] = React.useState(null);
 
   return (
-    <div className="w-full space-y-5">
+    <div className="w-full space-y-6">
       {layers.map((layer, index) => {
         const isSelected = selectedLayer === layer.id;
         return (
@@ -73,34 +73,34 @@ export default function ArchitectureDiagram() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             onClick={() => setSelectedLayer(isSelected ? null : layer.id)}
-            className={`p-6 sm:p-7 rounded-3xl bg-gradient-to-r ${layer.color} border backdrop-blur-xl transition-all duration-300 cursor-pointer ${isSelected ? "ring-2 ring-blue-400 shadow-[0_0_35px_rgba(59,130,246,0.25)]" : "hover:border-blue-400/50"}`}
+            className={`p-5 sm:p-8 rounded-3xl bg-gradient-to-r ${layer.color} border backdrop-blur-xl transition-all duration-300 cursor-pointer ${isSelected ? "ring-2 ring-blue-400 shadow-[0_0_35px_rgba(59,130,246,0.25)]" : "hover:border-blue-400/50"}`}
           >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
               <div>
-                <span className="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest block mb-1">
+                <span className="text-xs sm:text-sm font-mono font-bold text-blue-400 uppercase tracking-widest block mb-1">
                   {layer.title}
                 </span>
-                <h4 className="text-lg sm:text-xl font-bold text-white">{layer.subtitle}</h4>
+                <h4 className="text-xl sm:text-2xl font-bold text-white">{layer.subtitle}</h4>
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-md font-light">{layer.description}</p>
+              <p className="text-sm sm:text-base text-slate-300 max-w-md font-light leading-relaxed">{layer.description}</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {layer.items.map((item, i) => {
                 const ItemIcon = item.icon;
                 return (
                   <div
                     key={i}
-                    className="p-3.5 rounded-2xl bg-slate-950/70 border border-white/[0.08] hover:border-blue-500/40 hover:bg-slate-900/80 transition-all flex items-start gap-3 group"
+                    className="p-4 rounded-2xl bg-slate-950/80 border border-white/[0.08] hover:border-blue-500/40 hover:bg-slate-900/90 transition-all flex items-start gap-3.5 group shadow-md"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                      <ItemIcon className="w-4 h-4" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all shadow-sm">
+                      <ItemIcon className="w-5 h-5" />
                     </div>
-                    <div className="text-left">
-                      <div className="text-xs font-bold text-slate-100 group-hover:text-blue-300 transition-colors">
+                    <div className="text-left flex-1 min-w-0">
+                      <div className="text-sm sm:text-base font-bold text-slate-100 group-hover:text-blue-300 transition-colors leading-tight">
                         {item.name}
                       </div>
-                      <div className="text-[11px] text-slate-400 font-light mt-0.5">{item.detail}</div>
+                      <div className="text-xs sm:text-sm text-slate-300 font-light mt-1 leading-normal">{item.detail}</div>
                     </div>
                   </div>
                 );

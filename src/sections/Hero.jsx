@@ -15,7 +15,7 @@ export default function Hero({ onOpenStrategyModal }) {
   };
 
   return (
-    <section className="relative min-h-[95vh] pt-32 pb-20 flex items-center justify-center overflow-hidden grid-background">
+    <section className="hero-section relative min-h-[95vh] pt-32 pb-20 flex items-center justify-center overflow-hidden grid-background">
       {/* Cinematic ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[400px] sm:h-[500px] bg-gradient-to-b from-blue-600/15 via-indigo-600/10 to-transparent rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -130,7 +130,7 @@ export default function Hero({ onOpenStrategyModal }) {
         >
 
 
-  
+
         </motion.div>
       </div>
     </section>
